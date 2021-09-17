@@ -92,7 +92,7 @@ def calculatDistance(clus1, clus2, clus3):
 def Kmeans(irisarray):
   clus1, clus2, clus3, centroids = inilzClusAnCentroids(irisarray)
   origdistance  = calculateDistance(irisarray)
-  print("distance between datapoints after initial classification = ", origdistance)
+  #print("distance between datapoints after initial classification = ", origdistance)
   clus1 = np.empty([0, 5])
   clus2 = np.empty([0, 5])
   clus3 = np.empty([0, 5])
@@ -128,10 +128,11 @@ def Kmeans(irisarray):
   for row in clus3:
     distance += dist(row, centroids[2])
 
-  print('distance after one iteration (k-means classification) = ',distance)
-  print('total items in class 1 = ',len(clus1))
-  print('total items in class 2',len(clus2))
-  print('total items in class 3',len(clus2))
+  #print('distance after one iteration (k-means classification) = ',distance)
+  #print('total items in class 1 = ',len(clus1))
+  #print('total items in class 2',len(clus2))
+ # print('total items in class 3',len(clus2))
+  return clus1,clus2,clus3,distance
 
 
 
@@ -139,6 +140,8 @@ def Kmeans(irisarray):
 
 
 
+for i in range (9):
+ print("distance before iteration ", i ," = ", calculateDistance(irisarray))
+ clus1,clus2,clus3,distance= Kmeans(irisarray)
 
-
-Kmeans(irisarray)
+ print("last distance   ", distance)
