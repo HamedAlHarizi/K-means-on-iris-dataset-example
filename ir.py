@@ -34,7 +34,7 @@ def dist(datapoint,centroid):#to get distance between 2 points
   return distance
 
 
-def inilzClusAnCentroids(irisarray):
+def inilzClusAnCentroids(irisarray): # as per found data set, Note: centroids chosen as follow; the average datapoint in each class
   centroids = np.empty([3, 5])
   clus1 = np.empty([0,5])
   clus2 = np.empty([0,5])
@@ -91,15 +91,15 @@ def calculatDistance(clus1, clus2, clus3):
 
 def Kmeans(irisarray):
   clus1, clus2, clus3, centroids = inilzClusAnCentroids(irisarray)
-  origdistance  = calculateDistance(irisarray)
+
   #print("distance between datapoints after initial classification = ", origdistance)
   clus1 = np.empty([0, 5])
   clus2 = np.empty([0, 5])
   clus3 = np.empty([0, 5])
 
-  distBt= 100
+
   for row in irisarray:
-    r1 = row
+
 
     for centr in  centroids:
 
@@ -144,4 +144,4 @@ for i in range (9):
  print("distance before iteration ", i ," = ", calculateDistance(irisarray))
  clus1,clus2,clus3,distance= Kmeans(irisarray)
 
- print("last distance   ", distance)
+ print("distance after iteration ", i ," = ", distance)
